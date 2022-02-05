@@ -1,0 +1,23 @@
+@import '../scss/reset';
+@import '../scss/variables';
+@import '../scss/StepsButtons';
+
+// for general(((app.vue)))
+.app-wrapper {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+// for ShoppingCart.vue
+.main-wrapper {
+  display: grid;
+  grid-template-columns: 6fr 1fr 5fr;
+  grid-gap: 30px;
+  padding: 0;
+  .wrapper-left {
+  grid-column: 1 / 2;
+  };
+  .wrapper-right {
+  grid-column: 3 / 4;
+  }
+}

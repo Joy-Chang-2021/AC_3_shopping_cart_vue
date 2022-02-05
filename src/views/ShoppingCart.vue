@@ -1,15 +1,15 @@
 <template>
   <div>
     <h2>結帳</h2>
-    <div class="container">
-      <div class="container-left">
+    <div class="main-wrapper">
+      <div class="wrapper-left">
         <StepsPanel />
         <DeliveryAddress />
         <DeliveryWay class="d-none"/>
         <PaymentInfo class="d-none"/>
         <StepsButtons />
       </div>
-      <div class="container-right">List</div>
+      <div class="wrapper-right">List</div>
     </div>
   </div>
 </template>
@@ -31,21 +31,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.container {
-  display: grid;
-  grid-template-columns: 6fr 1fr 5fr;
-  grid-gap: 30px;
-  padding: 0
-}
-
-.container-left {
-  grid-column: 1 / 2;
-}
-
-.container-right {
-  grid-column: 3 / 4;
-}
-
-</style>

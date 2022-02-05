@@ -1,0 +1,15 @@
+$white: #ffffff;
+$black: #000000;
+$pink:#F67599;
+$gray5: #2a2a2a;
+$gray4: #4a4a4a;
+$gray3: #808080;
+$gray2: #999999;
+$grey1: #e6e6eb;
+
+:root {
+  --btn-next-background: #{$pink};
+  --btn-next-arrow: url('../assets/arrow-next.png');
+  --btn-pre-font-color: #{$black};
+  --btn-pre-arrow: url('../assets/arrow-pre.png');
+};
