@@ -4,10 +4,19 @@
     <div class="main-wrapper">
       <div class="wrapper-left">
         <StepsPanel />
-        <DeliveryAddress />
-        <DeliveryWay class="d-none"/>
-        <PaymentInfo class="d-none"/>
-        <StepsButtons />
+        <DeliveryAddress
+          :class="{ 'd-none': step !== 0 }"
+        />
+        <DeliveryWay
+          :class="{ 'd-none': step !== 1 }"
+        />
+        <PaymentInfo
+          :class="{ 'd-none': step !== 2 }"
+        />
+        <StepsButtons
+          :initial-step="step"
+          @after-steps-handler="afterStepsHandler"
+        />
       </div>
       <div class="wrapper-right">List</div>
     </div>
@@ -28,6 +37,17 @@ export default {
     DeliveryWay,
     PaymentInfo,
     StepsButtons
+  },
+  data () {
+    return {
+      step: 0
+    }
+  },
+  methods: {
+    afterStepsHandler(stepNumber) {
+      // 接收子元件傳入的數值、修改 this.step 狀態
+      this.step = stepNumber
+    }
   }
 }
 </script>

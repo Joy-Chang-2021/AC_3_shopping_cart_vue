@@ -149,4 +149,9 @@ button[disabled] {
   -ms-grid-column-span: 1;
   grid-column: 3 / 4;
 }
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 /*# sourceMappingURL=app.css.map */
