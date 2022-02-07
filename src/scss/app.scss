@@ -1,8 +1,9 @@
 @import '../scss/reset';
 @import '../scss/variables';
+@import '../scss/StepsPanel';
 @import '../scss/StepsButtons';
 
-// for general(((app.vue)))
+// for App.vue
 .app-wrapper {
   max-width: 1110px;
   margin: 0 auto;

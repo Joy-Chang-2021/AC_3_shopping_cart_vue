@@ -8,6 +8,7 @@ $gray2: #999999;
 $grey1: #e6e6eb;
 
 :root {
+  --step-line: #{$gray2};
   --btn-next-background: #{$pink};
   --btn-next-arrow: url('../assets/arrow-next.png');
   --btn-pre-font-color: #{$black};

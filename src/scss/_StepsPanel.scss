@@ -1,0 +1,22 @@
+@import '../scss/variables';
+@import '../scss/mixin';
+
+.step {
+  display: flex;
+  align-items: center;
+  color: var(--step-line);
+  h4 {
+    @include circle(24px);
+    border: 1px solid var(--step-line);
+    font-size: 0.75rem;
+  }
+  h5 {
+    margin-left: 5px;
+    font-size: 1rem;
+  }
+}
+
+.line {
+  width: 60px;
+  border-top: 2px solid var(--step-line);
+}

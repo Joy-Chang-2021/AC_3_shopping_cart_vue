@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
 }
 
 * {
@@ -31,6 +32,7 @@ button[disabled] {
 }
 
 :root {
+  --step-line: #999999;
   --btn-next-background: #F67599;
   --btn-next-arrow: url('../assets/arrow-next.png');
   --btn-pre-font-color: #000000;
@@ -38,6 +40,45 @@ button[disabled] {
 }
 
 :root {
+  --step-line: #999999;
+  --btn-next-background: #F67599;
+  --btn-next-arrow: url('../assets/arrow-next.png');
+  --btn-pre-font-color: #000000;
+  --btn-pre-arrow: url('../assets/arrow-pre.png');
+}
+
+.step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--step-line);
+}
+
+.step h4 {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid var(--step-line);
+  font-size: 0.75rem;
+}
+
+.step h5 {
+  margin-left: 5px;
+  font-size: 1rem;
+}
+
+.line {
+  width: 60px;
+  border-top: 2px solid var(--step-line);
+}
+
+:root {
+  --step-line: #999999;
   --btn-next-background: #F67599;
   --btn-next-arrow: url('../assets/arrow-next.png');
   --btn-pre-font-color: #000000;
@@ -74,6 +115,7 @@ button[disabled] {
 
 .btn span {
   margin: 0 13.5px;
+  font-size: 0.85rem;
 }
 
 .btn .img {
