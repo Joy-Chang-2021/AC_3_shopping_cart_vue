@@ -3,7 +3,9 @@
     <h2>結帳</h2>
     <div class="main-wrapper">
       <div class="wrapper-left">
-        <StepsPanel />
+        <StepsPanel
+          :current-step="step"
+        />
         <DeliveryAddress
           :class="{ 'd-none': step !== 0 }"
         />

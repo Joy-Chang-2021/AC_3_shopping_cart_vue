@@ -32,7 +32,8 @@ button[disabled] {
 }
 
 :root {
-  --step-line: #999999;
+  --step: #999999;
+  --step-active: #2a2a2a;
   --btn-next-background: #F67599;
   --btn-next-arrow: url('../assets/arrow-next.png');
   --btn-pre-font-color: #000000;
@@ -40,7 +41,8 @@ button[disabled] {
 }
 
 :root {
-  --step-line: #999999;
+  --step: #999999;
+  --step-active: #2a2a2a;
   --btn-next-background: #F67599;
   --btn-next-arrow: url('../assets/arrow-next.png');
   --btn-pre-font-color: #000000;
@@ -54,7 +56,7 @@ button[disabled] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: var(--step-line);
+  color: var(--step);
 }
 
 .step h4 {
@@ -63,7 +65,7 @@ button[disabled] {
   line-height: 24px;
   text-align: center;
   border-radius: 50%;
-  border: 1px solid var(--step-line);
+  border: 1px solid var(--step);
   font-size: 0.75rem;
 }
 
@@ -72,13 +74,33 @@ button[disabled] {
   font-size: 1rem;
 }
 
+.step:nth-child(1) h4 {
+  color: #ffffff;
+  background-color: var(--step-active);
+}
+
 .line {
   width: 60px;
-  border-top: 2px solid var(--step-line);
+  border-top: 2px solid var(--step);
+}
+
+.active, .check {
+  color: var(--step-active);
+  border-color: var(--step-active);
+}
+
+.active h4, .check h4 {
+  border-color: var(--step-active);
+}
+
+.check h4 {
+  color: #ffffff;
+  background-color: var(--step-active);
 }
 
 :root {
-  --step-line: #999999;
+  --step: #999999;
+  --step-active: #2a2a2a;
   --btn-next-background: #F67599;
   --btn-next-arrow: url('../assets/arrow-next.png');
   --btn-pre-font-color: #000000;

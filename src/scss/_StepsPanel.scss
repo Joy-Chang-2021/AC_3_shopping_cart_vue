@@ -4,19 +4,39 @@
 .step {
   display: flex;
   align-items: center;
-  color: var(--step-line);
+  color: var(--step);
   h4 {
     @include circle(24px);
-    border: 1px solid var(--step-line);
+    border: 1px solid var(--step);
     font-size: 0.75rem;
   }
   h5 {
     margin-left: 5px;
     font-size: 1rem;
   }
+  &:nth-child(1) h4 {
+    color: #{$white};
+    background-color: var(--step-active)
+  }
 }
 
 .line {
   width: 60px;
-  border-top: 2px solid var(--step-line);
+  border-top: 2px solid var(--step);
+}
+
+.active {
+  color: var(--step-active);
+  border-color: var(--step-active);
+  h4 {
+    border-color: var(--step-active);
+  }
+}
+
+.check {
+  @extend .active;
+  h4 {
+    color: #{$white};
+    background-color: var(--step-active)
+  }
 }
