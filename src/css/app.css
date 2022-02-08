@@ -34,6 +34,8 @@ button[disabled] {
 :root {
   --step: #999999;
   --step-active: #2a2a2a;
+  --form-title: #000000;
+  --form-input: #808080;
   --btn-next-background: #F67599;
   --btn-next-arrow: url('../assets/arrow-next.png');
   --btn-pre-font-color: #000000;
@@ -43,6 +45,8 @@ button[disabled] {
 :root {
   --step: #999999;
   --step-active: #2a2a2a;
+  --form-title: #000000;
+  --form-input: #808080;
   --btn-next-background: #F67599;
   --btn-next-arrow: url('../assets/arrow-next.png');
   --btn-pre-font-color: #000000;
@@ -98,9 +102,131 @@ button[disabled] {
   background-color: var(--step-active);
 }
 
+input[type="text"], select {
+  color: var(--form-input);
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--form-title);
+  border-radius: 4px;
+  margin-top: 8px;
+  padding-left: 16px;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--form-title);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked {
+  background-color: #ffffff;
+  -webkit-box-shadow: inset 0 0 0 5px var(--form-title);
+          box-shadow: inset 0 0 0 5px var(--form-title);
+}
+
+.part {
+  font-size: 0.75rem;
+  margin-top: 24px;
+}
+
+.part h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.part label {
+  display: block;
+  width: 100%;
+  margin: 24px 0 0 0;
+  color: var(--form-title);
+}
+
+.info-buyer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0 30px;
+}
+
+.info-buyer .gender, .info-buyer .city {
+  grid-column: span 2;
+}
+
+.info-buyer .name, .info-buyer .address {
+  grid-column: span 4;
+}
+
+.info-buyer .phone, .info-buyer .mail {
+  grid-column: span 3;
+}
+
+.info-delivery {
+  margin-bottom: 144px;
+  width: 435px;
+}
+
+.info-delivery > div {
+  position: relative;
+  margin-top: 24px;
+}
+
+.info-delivery > div input {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(100%, -50%);
+          transform: translate(100%, -50%);
+}
+
+.info-delivery > div input:checked ~ label {
+  border: 1px solid var(--form-title);
+}
+
+.info-delivery > div label {
+  margin: 0;
+  padding: 11px 0 11px 60px;
+  border: 1px solid var(--form-input);
+  border-radius: 4px;
+}
+
+.info-delivery > div label h6 {
+  font-size: 0.85rem;
+}
+
+.info-delivery > div label p {
+  font-size: 0.75rem;
+}
+
+.info-delivery > div label .delivery-cost {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+}
+
+.info-credit-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.info-credit-card .card-exp, .info-credit-card .card-security {
+  width: calc((100% - 30px) * 0.5);
+}
+
 :root {
   --step: #999999;
   --step-active: #2a2a2a;
+  --form-title: #000000;
+  --form-input: #808080;
   --btn-next-background: #F67599;
   --btn-next-arrow: url('../assets/arrow-next.png');
   --btn-pre-font-color: #000000;

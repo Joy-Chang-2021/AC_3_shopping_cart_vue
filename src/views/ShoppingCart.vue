@@ -1,18 +1,20 @@
 <template>
   <div>
+    <!-- todo: header -->
+    <!-- main -->
     <h2>結帳</h2>
     <div class="main-wrapper">
       <div class="wrapper-left">
         <StepsPanel
           :current-step="step"
         />
-        <DeliveryAddress
+        <CartFormI
           :class="{ 'd-none': step !== 0 }"
         />
-        <DeliveryWay
+        <CartFormII
           :class="{ 'd-none': step !== 1 }"
         />
-        <PaymentInfo
+        <CartFormIII
           :class="{ 'd-none': step !== 2 }"
         />
         <StepsButtons
@@ -22,22 +24,23 @@
       </div>
       <div class="wrapper-right">List</div>
     </div>
+    <!-- todo: footer -->
   </div>
 </template>
 
 <script>
 import StepsPanel from '../components/StepsPanel.vue'
-import DeliveryAddress from '../components/DeliveryAddress.vue'
-import DeliveryWay from '../components/DeliveryWay.vue'
-import PaymentInfo from '../components/PaymentInfo.vue'
+import CartFormI from '../components/CartFormI.vue'
+import CartFormII from '../components/CartFormII.vue'
+import CartFormIII from '../components/CartFormIII.vue'
 import StepsButtons from '../components/StepsButtons.vue'
 
 export default {
   components: {
     StepsPanel,
-    DeliveryAddress,
-    DeliveryWay,
-    PaymentInfo,
+    CartFormI,
+    CartFormII,
+    CartFormIII,
     StepsButtons
   },
   data () {
