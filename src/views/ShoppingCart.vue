@@ -22,7 +22,9 @@
           @after-steps-handler="afterStepsHandler"
         />
       </div>
-      <div class="wrapper-right">List</div>
+      <div class="wrapper-right">
+        <ItemsPanel />
+      </div>
     </div>
     <!-- todo: footer -->
   </div>
@@ -34,6 +36,7 @@ import CartFormI from '../components/CartFormI.vue'
 import CartFormII from '../components/CartFormII.vue'
 import CartFormIII from '../components/CartFormIII.vue'
 import StepsButtons from '../components/StepsButtons.vue'
+import ItemsPanel from '../components/ItemsPanel.vue'
 
 export default {
   components: {
@@ -41,7 +44,8 @@ export default {
     CartFormI,
     CartFormII,
     CartFormIII,
-    StepsButtons
+    StepsButtons,
+    ItemsPanel
   },
   data () {
     return {
