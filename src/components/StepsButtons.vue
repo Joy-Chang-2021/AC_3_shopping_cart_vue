@@ -9,10 +9,19 @@
       <span>上一步</span>
     </button>
     <button
+      v-if="initialStep !== 2"
       @click.prevent.stop="stepsHandler(true)"
       class="btn btn-next"
     >
       <span>下一步</span>
+      <div class="img btn-next-img"></div>
+    </button>
+    <button
+      v-else
+      @click.prevent.stop
+      class="btn btn-next"
+    >
+      <span>前往結帳</span>
       <div class="img btn-next-img"></div>
     </button>
   </div>
@@ -32,11 +41,11 @@ export default {
       // true: 下一頁(step++)； false: 上一頁(step--)
       if (value) stepNumber++
       else stepNumber--
-      // 控制 step 僅可 0 1 2 之間
+      // 控制 stepNumber 僅可 0 1 2 之間
       if (stepNumber > 2) stepNumber = 2
       else if (stepNumber < 0) stepNumber = 0
-      // 傳至父元件
-      this.$emit('after-steps-handler', stepNumber)
+      // 變更 children router
+      this.$router.push({ name: `form${stepNumber + 1}`})
     }
   },
 }

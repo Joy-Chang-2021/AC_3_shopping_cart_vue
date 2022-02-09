@@ -8,18 +8,9 @@
         <StepsPanel
           :current-step="step"
         />
-        <CartFormI
-          :class="{ 'd-none': step !== 0 }"
-        />
-        <CartFormII
-          :class="{ 'd-none': step !== 1 }"
-        />
-        <CartFormIII
-          :class="{ 'd-none': step !== 2 }"
-        />
+        <router-view/>
         <StepsButtons
           :initial-step="step"
-          @after-steps-handler="afterStepsHandler"
         />
       </div>
       <div class="wrapper-right">
@@ -32,18 +23,12 @@
 
 <script>
 import StepsPanel from '../components/StepsPanel.vue'
-import CartFormI from '../components/CartFormI.vue'
-import CartFormII from '../components/CartFormII.vue'
-import CartFormIII from '../components/CartFormIII.vue'
 import StepsButtons from '../components/StepsButtons.vue'
 import ItemsPanel from '../components/ItemsPanel.vue'
 
 export default {
   components: {
     StepsPanel,
-    CartFormI,
-    CartFormII,
-    CartFormIII,
     StepsButtons,
     ItemsPanel
   },
@@ -53,10 +38,13 @@ export default {
     }
   },
   methods: {
-    afterStepsHandler(stepNumber) {
-      // 接收子元件傳入的數值、修改 this.step 狀態
-      this.step = stepNumber
+    fetchStep () {
+      // 每當 router 更新、即更新 step 資料
+      this.step = this.$route.name[4] - 1
     }
+  },
+  updated () {
+    this.fetchStep()
   }
 }
 </script>
