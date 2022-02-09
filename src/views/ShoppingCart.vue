@@ -14,7 +14,9 @@
         />
       </div>
       <div class="wrapper-right">
-        <ItemsPanel />
+        <ItemsPanel
+          @emit-total-price="fetchTotalPrice"
+        />
       </div>
     </div>
     <!-- todo: footer -->
@@ -34,13 +36,18 @@ export default {
   },
   data () {
     return {
-      step: 0
+      step: 0,
+      inputData: {}
     }
   },
   methods: {
     fetchStep () {
       // 每當 router 更新、即更新 step 資料
       this.step = this.$route.name[4] - 1
+    },
+    fetchTotalPrice(value) {
+      this.inputData.totalPrice = value
+      console.log(this.inputData.totalPrice)
     }
   },
   created() {
