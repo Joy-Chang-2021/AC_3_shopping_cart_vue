@@ -45,7 +45,8 @@ export default {
       if (stepNumber > 2) stepNumber = 2
       else if (stepNumber < 0) stepNumber = 0
       // 變更 children router
-      this.$router.push({ name: `form${stepNumber + 1}`})
+      this.$router.push({ name: 'form' + (stepNumber + 1)})
+      .catch(()=>{});
     }
   },
 }

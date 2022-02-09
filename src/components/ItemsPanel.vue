@@ -54,7 +54,8 @@ const dummyData = [
 export default {
   data () {
     return {
-      items: []
+      items: [],
+      totalPrice: 0,
     }
   },
   methods: {

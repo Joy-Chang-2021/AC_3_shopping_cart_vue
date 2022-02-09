@@ -43,7 +43,10 @@ export default {
       this.step = this.$route.name[4] - 1
     }
   },
-  updated () {
+  created() {
+    this.fetchStep()
+  },
+  updated() {
     this.fetchStep()
   }
 }
