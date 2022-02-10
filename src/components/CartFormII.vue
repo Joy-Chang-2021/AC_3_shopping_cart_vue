@@ -47,6 +47,7 @@ export default {
       this.shippingFee = storageFee ? storageFee : 0
     },
     sendByEventBus() {
+      // 將資料送至 ItemsPanel (跨階層component)
       eventBus.$emit("emit-data", this.shippingFee)
     }
   },

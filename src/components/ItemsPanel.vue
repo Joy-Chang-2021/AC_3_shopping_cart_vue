@@ -98,6 +98,7 @@ export default {
       this.totalPrice = total
     },
     getFromEventBus() {
+      // 從 CartFormII (跨階層component) 取得資料
       eventBus.$on("emit-data", (param) => {
         this.shippingFee = Number(param)
         this.checkTotalPrice() //同時計算總價

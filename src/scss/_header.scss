@@ -1,0 +1,65 @@
+@import '../scss/variables';
+
+%icon {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.header {
+  height: 60px;
+  padding: 18px 0;
+  position: relative;
+  .logo-panel {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    flex-wrap: nowrap;
+    align-items: center;
+    .logo-img {
+      @extend %icon;
+      background-image: var(--logo-img);
+    }
+    .logo-text {
+      @extend %icon;
+      width: 105px;
+      height: 15px;
+      background-image: var(--logo-text);
+      margin-left: 8px;
+    }
+  }
+  .navbar-panel {
+    color: var(--step-active);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      h3 {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-right: 32px;
+      }
+    }
+    .icons {
+      justify-content: center;
+      div {
+        @extend %icon;
+        margin: 0 20px;
+      }
+      .icon-search {
+        background-image: var(--icon-search);
+      }
+      .icon-cart {
+        background-image: var(--icon-cart);
+      }
+      .icon-theme {
+        background-image: var(--icon-theme);
+      }
+    }
+  }
+}

@@ -8,6 +8,13 @@ $gray2: #999999;
 $grey1: #e6e6eb;
 
 :root {
+  // header 
+  --logo-img: url('../assets/logo-img.png');
+  --logo-text: url('../assets/logo-text.png');
+  --icon-search: url('../assets/icon-search.png');
+  --icon-cart: url('../assets/icon-cart.png');
+  --icon-theme: url('../assets/icon-theme.png');
+  // main
   --step: #{$gray2};
   --step-active: #{$gray5};
   --form-title: #{$black};
