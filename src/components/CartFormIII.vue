@@ -31,6 +31,35 @@ export default {
       expdate: null,
       cvv: '',
     }
+  },
+  methods: {
+    setLocalStorage() {
+      // 將 v-model 資料覆蓋存入 localStorage
+      let storageData = JSON.parse(localStorage.getItem('cart-info'))
+      storageData = {
+        ...storageData,
+        ccname: this.ccname,
+        cardnumber: this.cardnumber,
+        expdate: this.expdate,
+        cvv: this.cvv
+      }
+      localStorage.setItem('cart-info', JSON.stringify(storageData))
+    },
+    getLocalStorage() {
+      // 取用 & 使畫面顯示 localStorage 資料
+      let storageData = JSON.parse(localStorage.getItem('cart-info'))
+      const { ccname, cardnumber, expdate, cvv } = storageData
+      this.ccname = ccname ? ccname : ''
+      this.cardnumber = cardnumber ? cardnumber : ''
+      this.expdate = expdate ? expdate : null
+      this.cvv = cvv ? cvv : ''
+    }
+  },
+  created() {
+    this.getLocalStorage()
+  },
+  beforeUpdate() {
+    this.setLocalStorage()
   }
 }
 </script>

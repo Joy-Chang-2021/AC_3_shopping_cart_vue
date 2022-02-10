@@ -52,7 +52,38 @@ export default {
     }
   },
   methods: {
+    setLocalStorage() {
+      // 將 v-model 資料覆蓋存入 localStorage
+      let storageData = JSON.parse(localStorage.getItem('cart-info'))
+      storageData = {
+        ...storageData,
+        salutation: this.salutation,
+        username: this.username,
+        phone: this.phone,
+        email: this.email,
+        city: this.city,
+        address: this.address
+      }
+      localStorage.setItem('cart-info', JSON.stringify(storageData))
+    },
+    getLocalStorage() {
+      // 取用 & 使畫面顯示 localStorage 資料
+      let storageData = JSON.parse(localStorage.getItem('cart-info'))
+      const { salutation, username, phone, email, city, address } = storageData
 
+      this.salutation = salutation ? salutation : null
+      this.username = username ? username : ''
+      this.phone = phone ? phone : ''
+      this.email = email ? email : ''
+      this.city = city ? city : null
+      this.address = address ? address : ''
+    }
+  },
+  beforeUpdate() {
+    this.setLocalStorage()
+  },
+  created() {
+    this.getLocalStorage()
   }
 }
 </script>

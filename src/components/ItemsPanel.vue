@@ -90,13 +90,25 @@ export default {
       let total = 0
       this.items.forEach(item => total += item.quantity * item.price)
       this.totalPrice = total
-      // 傳送資料給父元素
-      this.$emit('emit-total-price', this.totalPrice)
+    },
+    setLocalStorage() {
+      // 將 v-model 資料覆蓋存入 localStorage
+      let storageData = JSON.parse(localStorage.getItem('cart-info'))
+      storageData = {
+        ...storageData,
+        totalPrice: this.totalPrice
+      }
+      localStorage.setItem('cart-info', JSON.stringify(storageData))
+
     }
   },
   created () {
     this.fetchItems()
     this.checkTotalPrice()
+    this.setLocalStorage()
+  },
+  beforeUpdate() {
+    this.setLocalStorage()
   }
 }
 </script>
