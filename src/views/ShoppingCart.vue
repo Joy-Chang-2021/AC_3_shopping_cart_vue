@@ -14,9 +14,7 @@
         />
       </div>
       <div class="wrapper-right">
-        <ItemsPanel
-          @emit-total-price="fetchTotalPrice"
-        />
+        <ItemsPanel />
       </div>
     </div>
     <!-- todo: footer -->

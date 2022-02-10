@@ -19,12 +19,15 @@
       </div>
     </div>
     <div class="shopping-cost">
-      <div class="delivery-fee">
-        <span>運費</span><span>免費</span>
+      <div>
+        <span>運費</span>
+        <span class="delivery-fee">
+          {{ checkShippingFee }}
+        </span>
       </div>
-      <div class="total-cost">
+      <div>
         <span>小計</span>
-        <span>{{ totalPrice }}</span>
+        <span class="total-cost">{{ totalPrice | moneySymbol }}</span>
       </div>
     </div>
   </div>
@@ -33,6 +36,7 @@
 <script>
 import image01 from '../assets/item01.png'
 import image02 from '../assets/item02.png'
+import eventBus from '../javascript/eventBus.js'
 
 const dummyData = [
   {
@@ -55,6 +59,7 @@ export default {
   data () {
     return {
       items: [],
+      shippingFee: 0,
       totalPrice: 0,
     }
   },
@@ -69,7 +74,7 @@ export default {
         if (item.id === id) return { ...item, quantity: item.quantity + 1 }
         else return item
       })
-      this.checkTotalPrice()
+      this.checkTotalPrice() //同時計算總價
     },
     subtractuantity(id) {
       // 減少數量
@@ -83,13 +88,20 @@ export default {
         }
         else return item
       })
-      this.checkTotalPrice()
+      this.checkTotalPrice() //同時計算總價
     },
     checkTotalPrice() {
       // 計算總價
       let total = 0
       this.items.forEach(item => total += item.quantity * item.price)
+      total += this.shippingFee
       this.totalPrice = total
+    },
+    getFromEventBus() {
+      eventBus.$on("emit-data", (param) => {
+        this.shippingFee = Number(param)
+        this.checkTotalPrice() //同時計算總價
+      })
     },
     setLocalStorage() {
       // 將 v-model 資料覆蓋存入 localStorage
@@ -99,16 +111,26 @@ export default {
         totalPrice: this.totalPrice
       }
       localStorage.setItem('cart-info', JSON.stringify(storageData))
-
+    }
+  },
+  computed: {
+    checkShippingFee() {
+      return Number(this.shippingFee) === 0 ? '免費' : '$' + Number(this.shippingFee)
+    }
+  },
+  filters: {
+    moneySymbol(value) {
+      return `$${value}`
     }
   },
   created () {
     this.fetchItems()
     this.checkTotalPrice()
+    this.getFromEventBus()
     this.setLocalStorage()
   },
   beforeUpdate() {
     this.setLocalStorage()
-  }
+  },
 }
 </script>

@@ -1,33 +1,37 @@
 @import '../scss/variables';
 
-.btn {
-  width: 156px;
-  height: 46px;
-  padding: 0px;
-  &.btn-previous {
-    color: var(--btn-pre-font-color);
-    &:disabled {
-      visibility: hidden;
+.btns-panel {
+  border-top: 1px solid var(--item-list-frame);
+  padding-top: 24px;
+  .btn {
+    width: 156px;
+    height: 46px;
+    padding: 0px;
+    &.btn-previous {
+      color: var(--btn-pre-font-color);
+      &:disabled {
+        visibility: hidden;
+      }
+      .btn-pre-img {
+        content: var(--btn-pre-arrow)
+      }
+    };
+    &.btn-next {
+      color: #{$white};
+      border-radius: 8px;
+      background-color: var(--btn-next-background);
+      .btn-next-img {
+        content: var(--btn-next-arrow)
+      }
     }
-    .btn-pre-img {
-      content: var(--btn-pre-arrow)
-    }
+    span{
+      margin: 0 13.5px;
+      font-size: 0.85rem;
+    };
+    .img {
+    display: inline-block;
+    width: 20.5px;
+    height: 9px;
+    } 
   };
-  &.btn-next {
-    color: #{$white};
-    border-radius: 8px;
-    background-color: var(--btn-next-background);
-    .btn-next-img {
-      content: var(--btn-next-arrow)
-    }
-  }
-  span{
-    margin: 0 13.5px;
-    font-size: 0.85rem;
-  };
-  .img {
-  display: inline-block;
-  width: 20.5px;
-  height: 9px;
-  } 
-};
+}

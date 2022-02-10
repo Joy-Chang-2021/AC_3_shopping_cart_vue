@@ -24,6 +24,7 @@
       <label for="city" class="city">
         <p>縣市</p>
         <select v-model="city" name="city" id="city">
+          <option value="null" disabled>請選擇縣市</option>
           <option value="台北市">台北市</option>
           <option value="新北市">新北市</option>
           <option value="桃園市">桃園市</option>
@@ -43,11 +44,11 @@
 export default {
   data () {
     return {
-      salutation: null,
+      salutation: 'Mr.',
       username: '',
       phone: '',
       email: '',
-      city: null,
+      city: 'null',
       address: ''
     }
   },
@@ -71,11 +72,11 @@ export default {
       let storageData = JSON.parse(localStorage.getItem('cart-info'))
       const { salutation, username, phone, email, city, address } = storageData
 
-      this.salutation = salutation ? salutation : null
+      this.salutation = salutation ? salutation : 'Mr.'
       this.username = username ? username : ''
       this.phone = phone ? phone : ''
       this.email = email ? email : ''
-      this.city = city ? city : null
+      this.city = city ? city : 'null'
       this.address = address ? address : ''
     }
   },

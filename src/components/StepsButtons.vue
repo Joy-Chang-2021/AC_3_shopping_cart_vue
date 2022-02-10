@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-between">
+  <div class="btns-panel d-flex justify-content-between">
     <button
       @click.prevent.stop="stepsHandler(false)"
       class="btn btn-previous text-left"

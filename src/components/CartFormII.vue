@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import eventBus from '../javascript/eventBus.js'
+
 export default {
   data() {
     return {
@@ -41,9 +43,11 @@ export default {
     },
     getLocalStorage() {
       // 取用 & 使畫面顯示 localStorage 資料
-      let storageData = JSON.parse(localStorage.getItem('cart-info'))
-      const { shippingFee } = storageData
-      this.shippingFee = shippingFee ? shippingFee : 0
+      let storageFee = JSON.parse(localStorage.getItem('cart-info')).shippingFee
+      this.shippingFee = storageFee ? storageFee : 0
+    },
+    sendByEventBus() {
+      eventBus.$emit("emit-data", this.shippingFee)
     }
   },
   created() {
@@ -52,6 +56,7 @@ export default {
   },
   beforeUpdate() {
     this.setLocalStorage()
+    this.sendByEventBus()
   }
 }
 </script>
