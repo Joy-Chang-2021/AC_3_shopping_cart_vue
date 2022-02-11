@@ -18,12 +18,15 @@
     </button>
     <button
       v-else
-      @click.prevent.stop
+      @click.prevent.stop="showModal"
       class="btn btn-next"
     >
-      <span>前往結帳</span>
+      <span>確認下單</span>
       <div class="img btn-next-img"></div>
     </button>
+    <modal name="storage-modal" height="auto">
+      <p v-html="renderStorageData" class="storage-modal"></p>
+    </modal>
   </div>
 </template>
 
@@ -33,6 +36,11 @@ export default {
     initialStep: {
       type: Number,
       required: true
+    }
+  },
+  data () {
+    return {
+      storageData: null
     }
   },
   methods: {
@@ -47,6 +55,28 @@ export default {
       // 變更 children router
       this.$router.push({ name: 'form' + (stepNumber + 1)})
       .catch(()=>{});
+    },
+    getStorageData () {
+      // 取得 localStorage 資料
+      this.storageData = JSON.parse(localStorage.getItem('cart-info')) || {}
+    },
+    showModal () {
+      this.getStorageData ()
+      this.$modal.show('storage-modal')
+    },
+    hideModal () {
+      this.$modal.hide('storage-modal')
+    }
+  },
+  computed: {
+    renderStorageData() {
+      // 使 modal 內容能換行排列
+      let text = '{<br/>'
+      for (let key in this.storageData) {
+        text += `&ensp;&ensp;${key}: ${this.storageData[key]}<br/>`
+      }
+      text += '}'
+      return text
     }
   },
 }
