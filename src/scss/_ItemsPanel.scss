@@ -1,5 +1,4 @@
 .shopping-list {
-  margin: 32px 0;
   padding: 0 16px;
   border: 1px solid var(--item-list-frame);
   border-radius: 8px;
@@ -7,7 +6,6 @@
     display: block;
     margin: 32px 0;
     font-weight: bold;
-    // todo...
   }
   .shopping-items {
     .item {
